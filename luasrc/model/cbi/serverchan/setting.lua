@@ -468,7 +468,7 @@ a.rmempty = true
 a:depends({macmechanism="block"})
 a.description = translate("AA:AA:AA:AA:AA:AA\\|BB:BB:BB:BB:BB:B You can combine multiple MAC Treat as the same user<br/>No more push after any device is online，Push only when all devices are offline，Avoid double wifi Frequent push")
 
-a = s:taboption("disturb", ListValue, "serverchan_interface", translate("接口名称"))
+a = s:taboption("disturb", ListValue, "serverchan_interface", translate("Interface name"))
 a:depends({macmechanism="interface"})
 a.rmempty = true
 
@@ -484,18 +484,18 @@ for _, iface in ipairs(ifaces) do
 	end
 end
 
-a=s:taboption("disturb", ListValue,"macmechanism2",translate("MAC过滤2"))
+a=s:taboption("disturb", ListValue,"macmechanism2",translate("MAC filter 2"))
 a:value("",translate("disable"))
-a:value("MAC_online",translate("列表内任意设备在线时免打扰"))
-a:value("MAC_offline",translate("列表内设备都离线后免打扰"))
+a:value("MAC_online",translate("Do not disturb when any device in the list is online"))
+a:value("MAC_offline",translate("Do not disturb after all devices in the list are offline"))
 a.rmempty = true
 
-a = s:taboption("disturb", DynamicList, "MAC_online_list", translate("在线免打扰列表"))
+a = s:taboption("disturb", DynamicList, "MAC_online_list", translate("Online Do Not Disturb List"))
 nt.mac_hints(function(mac, name) a:value(mac, "%s (%s)" %{ mac, name }) end)
 a.rmempty = true
 a:depends({macmechanism2="MAC_online"})
 
-a = s:taboption("disturb", DynamicList, "MAC_offline_list", translate("任意离线免打扰列表"))
+a = s:taboption("disturb", DynamicList, "MAC_offline_list", translate("Any offline do not disturb list"))
 nt.mac_hints(function(mac, name) a:value(mac, "%s (%s)" %{ mac, name }) end)
 a.rmempty = true
 a:depends({macmechanism2="MAC_offline"})
