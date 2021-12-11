@@ -2,7 +2,7 @@ local nt = require "luci.sys".net
 local fs=require"nixio.fs"
 
 m=Map("serverchan",translate("hint："),
-translate("If you don’t understand the meaning of these options，请不要修改这些选项"))
+translate("If you don’t understand the meaning of these options，Please do not modify the options"))
 
 s = m:section(TypedSection, "serverchan", "高级设置")
 s.anonymous = true
