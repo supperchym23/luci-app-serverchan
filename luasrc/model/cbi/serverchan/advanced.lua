@@ -4,11 +4,11 @@ local fs=require"nixio.fs"
 m=Map("serverchan",translate("hint："),
 translate("If you don’t understand the meaning of these options，Please do not modify the options"))
 
-s = m:section(TypedSection, "serverchan", "高级设置")
+s = m:section(TypedSection, "serverchan", "advanced settings")
 s.anonymous = true
 s.addremove = false
 
-a=s:option(Value,"up_timeout",translate('设备上线检测超时（s）'))
+a=s:option(Value,"up_timeout",translate('Device online detection timed out（s）'))
 a.default = "2"
 a.optional=false
 a.datatype="uinteger"
